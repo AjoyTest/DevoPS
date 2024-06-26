@@ -11,6 +11,7 @@ namespace DevoPS.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            //logger
         }
 
         public IActionResult Index()
