@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace DevoPS.Controllers
 {
+    // Added new comment
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
