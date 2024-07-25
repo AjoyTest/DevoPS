@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-k8s-deployment
+spec:
+  replicas: 2 # No of pods will be created for this deployment where application instances will be running
+  selector:
+    matchLabels:
+      app: devops-k8s
+  template:
+    metadata:
+      labels:
+        app: devops-k8s
+    spec:
+      containers:
+        - name: devops-k8s
+          image: ajoyroy/ci_cd:latest # image kubernetes will pull from the dockerhub and used to containers in the cluster
+          ports:
+            - containerPort: 80 # Port that container is running on the cluster
+  
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-k8ssvc
+spec:
+  selector:
+    app: devops-k8s
+  ports:
+    - protocol: TCP
+      port: 80 # Port that the service is running on in the cluster
+      targetPort: 80 # Port exposed by the service
+  type: NodePort  # Adjust according to your environment (LoadBalancer, NodePort, ClusterIP)
