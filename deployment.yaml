@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-k8s-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-k8s
+  template:
+    metadata:
+      labels:
+        app: devops-k8s
+    spec:
+      containers:
+        - name: devops-k8s
+          image: ajoyroy/ci_cd:v2
+          ports:
+            - containerPort: 80      
