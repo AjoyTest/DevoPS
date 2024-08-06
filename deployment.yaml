@@ -16,4 +16,4 @@ spec:
         - name: devops-k8s
           image: ajoyroy/ci_cd:v2
           ports:
-            - containerPort: 80      
+            - containerPort: 8080      

@@ -7,6 +7,6 @@ spec:
     app: devops-k8s
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 8080
+      targetPort: 8080
   type: NodePort
